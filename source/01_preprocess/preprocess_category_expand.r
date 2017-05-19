@@ -91,7 +91,8 @@ fwrite(train_categorical_expand, "../../input/train_categorical_expand.csv", quo
 # test data ----------
 
 test_categorical <- fread(file.path(data_dir, "test_categorical.csv"), data.table=FALSE,
-							na.strings="", showProgress=TRUE, colClasses=colClasses, drop="Id")
+							na.strings="", showProgress=TRUE, colClasses=colClasses)
+test_categorical$Id <- NULL
 
 print("==> Update levels")
 for(i in seq_along(test_categorical)){
